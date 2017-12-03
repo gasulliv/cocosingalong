@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
+
+	<style type="text/css">
+		body {
+		 font-family: 'cocoregular';
+		 color:#ffffff;
+		 background-color: #000000;
+		 font-size: 70px;
+     overflow:hidden;
+			}
+
+		.lyrics{
+			word-spacing: 3px;
+      background-color: black;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow-y: hidden;
+      text-align: center;
+      padding-top: 200px;
+		}
+
+
+    p {
+      display: inline-block;
+    }
+
+    .sugarskull {
+      background-color: black;
+       background-image: url('cocoskull.png');
+       background-repeat: no-repeat;
+       background-position: center;
+       background-size: 50%;
+       width:100%;
+       height:100%;
+       position: absolute;
+       z-index: 3;
+    }
+
+
+@-webkit-keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0,-4px,0);
+    transform: translate3d(0,-4px,0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -30px, 0);
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    -webkit-transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transition-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    -webkit-transform: translate3d(0, -15px, 0);
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0,-4px,0);
+    transform: translate3d(0,-4px,0);
+  }
+}
+
+
+    .bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+	</style>
+
+	<title>Everyone Knows Juanita</title>
+
+</head>
+
+<body>
+<div id="container">
+  <div class = "sugarskull">
+  </div>
+		<div class = "lyrics">
+     Well Everyone Knows Juanita
+		</div>
+</div>
+<audio id="my_audio" src="music/everyoneknowsjuanita.m4a">
+
+</script></audio>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+  $(document).ready(function(){
+
+    $("#my_audio").get(0).play();
+
+    //js script to rotate colors on font
+$('.lyrics').each(function() {
+  var letters = $(this).text().split('');
+  var colors = ["#e72f14", "#f59f00;", "#ea4591", "#2a94c7"];
+  for (var i = 0; i < letters.length; i++) {
+    letters[i] = "<span class = 'bounce' style='color:" + colors[(i % colors.length)] + ";'>" + letters[i] + "</span>";
+  }
+  $(this).html(letters.join(""));
+});
+
+//fade out the sugar skull div
+$(function () {
+  $('.sugarskull').fadeIn('slow', function () {
+    $(this).delay(15000).fadeOut('slow');
+  });
+});
+
+  });
+
+
+
+
+
+
+
+
+
+</script>
+</html>
